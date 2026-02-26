@@ -1,5 +1,9 @@
 # Telerilevamento_2026 🛰️
 
+![Sentinel_2](https://github.com/user-attachments/assets/e674dcaf-09b6-44ce-ae2e-3f7232bdc946)
+
+
+
 ## What is it? 📘
 This repo contains code developed during the Course "Telerilevamento Geo-Ecologico in R" by Duccio Rocchini at University of Bologna, 2026: [Link to course](https://www.unibo.it/it/studiare/insegnamenti-competenze-trasversali-moocs/insegnamenti/insegnamento/2025/523159)
 
