@@ -1,6 +1,6 @@
 # Telerilevamento_2026 🛰️
 
-![Sentinel_2](https://github.com/user-attachments/assets/e674dcaf-09b6-44ce-ae2e-3f7232bdc946)
+<img width="1200" height="628" src="https://github.com/user-attachments/assets/c86a0760-46ef-4354-9108-f760331bdfb4" />
 
 
 
