@@ -40,3 +40,4 @@ library(devtools)
 install_github("ducciorocchini/imageRy")
 install_github("ducciorocchini/imageRy")
 
+im.list()
