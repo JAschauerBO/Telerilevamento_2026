@@ -52,3 +52,5 @@ dev.off() # close windows
 
 # instead of par we can use the function from imageRy
 im.multiframe(1,2)
+plot(b2, col=inferno(100))
+plot(b2, col=cl_exercise)
