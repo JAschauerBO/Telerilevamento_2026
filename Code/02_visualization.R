@@ -7,6 +7,10 @@ library(devtools)
 # install_github("ducciorocchini/imageRy")
 
 library(viridis)
+# install.packages("ggplot2")
+library(ggplot2)
+# install.packages("patchwork")
+library(patchwork)
 library(terra) #use package terra for using spatial data
 library(imageRy) #package devoted to satellite images, functions start with im.
 
@@ -89,3 +93,48 @@ plot(sentinel, col=inferno(100))
 
 plot(sentinel$sentinel.dolomites.b8) # $ to use an item from the array with this name
 plot(sentinel[[4]]) # [[x]] to use the x number from the array
+
+
+
+#------------------------------------------------------------------
+
+
+
+
+
+
+
+b2 <- im.import("sentinel.dolomites.b2.tif") #blue
+b3 <- im.import("sentinel.dolomites.b3.tif") #green
+b4 <- im.import("sentinel.dolomites.b4.tif") #red
+b8 <- im.import("sentinel.dolomites.b8.tif") #NIR
+
+sentinel <- c(b2, b3, b4, b8)
+
+# 1 = b2 blue
+# 2 = b3 green
+# 3 = b4 red
+# 4 = b8 NIR
+
+im.ggplot(b8)
+
+p1 <- im.ggplot(b8)
+p2 <- im.ggplot(b4)
+
+p1 + p2
+
+
+# Plotting by RGB schemes
+im.plotRGB(sentinel, r=3, g=2, b=1) # insert the numbers of the respective color"band" in the array -> here: natural colors
+im.plotRGB(sentinel, r=4, g=3, b=2) # without blue, but with NIR; False Color Image: Red: Vegetation; Shift in Colorbands
+im.plotRGB(sentinel, r=3, g=4, b=2) # switch r and g, not really useful?
+im.plotRGB(sentinel, r=2, g=4, b=3) # same as before
+im.plotRGB(sentinel, r=2, g=3, b=4) # NIR on blue Display band
+
+
+im.multiframe(1,2)
+im.plotRGB(sentinel, r=3, g=4, b=2)
+im.plotRGB(sentinel, r=2, g=4, b=3)
+
+# correlations
+pairs(sentinel) # correlations between all the different permutations
