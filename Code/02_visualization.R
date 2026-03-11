@@ -125,11 +125,11 @@ p1 + p2
 
 
 # Plotting by RGB schemes
-im.plotRGB(sentinel, r=3, g=2, b=1) # insert the numbers of the respective color"band" in the array -> here: natural colors
-im.plotRGB(sentinel, r=4, g=3, b=2) # without blue, but with NIR; False Color Image: Red: Vegetation; Shift in Colorbands
-im.plotRGB(sentinel, r=3, g=4, b=2) # switch r and g, not really useful?
-im.plotRGB(sentinel, r=2, g=4, b=3) # same as before
-im.plotRGB(sentinel, r=2, g=3, b=4) # NIR on blue Display band
+im.plotRGB(sentinel, r=3, g=2, b=1) # insert the numbers of the respective color"band" in the array -> here: natural colors    NATURAL COLORS
+im.plotRGB(sentinel, r=4, g=3, b=2) # without blue, but with NIR; False Color Image: Red: Vegetation; Shift in Colorbands      FALSE COLORS
+im.plotRGB(sentinel, r=3, g=4, b=2) # switch r and g, not really useful?                                                       FALSE COLORS
+im.plotRGB(sentinel, r=2, g=4, b=3) # same as before                                                                           FALSE COLORS
+im.plotRGB(sentinel, r=2, g=3, b=4) # NIR on blue Display band                                                                 FALSE COLORS
 
 
 im.multiframe(1,2)
@@ -138,3 +138,15 @@ im.plotRGB(sentinel, r=2, g=4, b=3)
 
 # correlations
 pairs(sentinel) # correlations between all the different permutations
+
+# Plotting in RGB via terra
+plotRGB(sentinel, r=4, g=3, b=2) # Color intensity problem: Values between 20 and 60 -> we need linear stretch
+plotRGB(sentinel, r=4, g=3, b=2, stretch="lin") # with linear stretch
+plotRGB(sentinel, r=4, g=3, b=2, stretch="hist") # also histogram stretch possible; areas of values with higher prevalence can be distinguished better
+
+
+#RGB Plotting based on the ggplot2 package
+im.ggplotRGB(sentinel, r=4, g=3, b=2, stretch="lin") # currently not working
+
+# Simplify code:
+im.plotRGB(sentinel, 3, 4, 2)
