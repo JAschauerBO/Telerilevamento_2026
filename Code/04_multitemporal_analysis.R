@@ -4,7 +4,7 @@ library(terra)
 library(imageRy)
 library(viridis)
 library(ggplot2)
-# install.packages("ggrdiges")
+# install.packages("ggridges")
 library(ggridges)
 
 im.list()
@@ -44,3 +44,29 @@ plot(gr[[4]], col=plasma(100))
 
 
 ################################################################ Bis hier im März ###################################
+
+
+
+##########
+
+# import data
+ndvi <- im.import("Sentinel2_NDVI")
+hist(ndvi) # histogram of value distribution
+im.ridgeline(ndvi, scale=1, palette="viridis")
+
+
+names(ndvi) <- c("02_feb", "05_may", "08_aug", "11_nov") # reassign names or all 4 objects in ndvi
+
+im.ridgeline(ndvi, scale=2, palette="viridis") # try with different vertical scale: 2 boxes hight
+
+plot(ndvi[[1]], ndvi[[2]]) # plot feb points against may. It's not y=x
+# y=x
+# y= a + bx; a = 0; b = 1
+abline(0,1, col= "red")
+
+# adjust vertical & horizontal scale and limits of plot
+# x min -0.3
+# y max 0.9
+plot(ndvi[[1]], ndvi[[2]], xlim=c(-0.3,0.9), ylim=c(-0.3,0.9))
+abline(0,1, col= "red")
+# alle Punkt liegen über der roten Linie, also mehr in May richtung als in Feb
