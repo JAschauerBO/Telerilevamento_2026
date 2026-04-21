@@ -14,3 +14,11 @@ sunc <- im.classify(sun, seed = 42)
 # Import Grand Canyon Data
 can <- im.import("dolansprings_oli_2013088_canyon_lrg.jpg")
 im.classify(can, num_clusters=4)
+
+# Import a new photo
+setwd("C:/Users/jakob/Desktop")
+getwd()
+beach <- rast("beach.jpg") # Import Picture
+beach <- flip(beach) # FLip it
+
+im.classify(beach, num_clusters=4)
