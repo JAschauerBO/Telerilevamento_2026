@@ -3,6 +3,8 @@
 library(terra)
 library(viridis)
 library(imageRy)
+library(ggplot2)
+library(patchwork)
 
 # List of files
 im.list()
@@ -69,8 +71,33 @@ perc2006
 
 # Table
 tabout <- data.frame(
-  class=c("Forest","Human"),
+  class = c("Forest","Human"),
   perc1992 = c(83, 17),
   perc2006 = c(45, 55)
   )
 tabout
+
+
+# Plot data with ggplot2
+ggplot(tabout, aes(x = class, y = perc1992, color = class)) + # Structure of plot
+  geom_bar(stat = 'identity', fill="white")    # bar Plot: Stat=Identity uses "raw data" without make own stats
+
+# Exercise: plot the bars of 2006
+ggplot(tabout, aes(x = class, y = perc2006, color = class)) + 
+  geom_bar(stat = 'identity', fill="grey")
+
+# Using patchwork: assing plots to variables
+p1 <- ggplot(tabout, aes(x = class, y = perc1992, color = class)) + 
+  geom_bar(stat = 'identity', fill = "white") +
+  ylim(c(0,100)) + # Y Limits
+  theme(legend.position = "none") + # disable legend on first plot
+  # theme_dark() # BRUTTISSIMO
+p2 <- ggplot(tabout, aes(x = class, y = perc2006, color = class)) + 
+  geom_bar(stat = 'identity', fill = "white") +
+  ylim(c(0,100)) +
+  theme_minimal()
+p1 + p2
+
+
+p1 <- ggplot(tabout, aes(x=class, y=perc1992, color=class)) + 
+      geom_bar(stat="identity", fill="white") 
