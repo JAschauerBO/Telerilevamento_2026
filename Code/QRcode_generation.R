@@ -1,7 +1,9 @@
 # install.packages("qrcode")
 
 library(qrcode)
- 
+
+setwd("C:/Users/jakob/Desktop")
+
 url <- "https://github.com/JAschauerBO"
  
 qr <- qr_code(url)
