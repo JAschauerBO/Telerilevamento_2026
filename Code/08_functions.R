@@ -42,3 +42,7 @@ loop <- function(x=1) {
     print(i*x)
     }
   }
+
+sink("data.txt)
+loop(5)
+sink()
