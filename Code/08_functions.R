@@ -15,10 +15,30 @@ difference <- function(x,y) {
 
 difference(5,3)
 
+mf <- function(nrow=1, ncol=2) {  # use default values
+  par(mfrow=(c(nrow, ncol)))
+  }
+
+
+# if condition
 is_positive <- function(x) {
-  if (x>0) {print("The number is positive")}
-  else if (x<0) {print("The number is negative")}
-  else {print("Zero")}
+  if (x>0) {
+    print("The number is positive")
+    }
+  else if (x<0) {
+    print("The number is negative")
+    }
+  else {
+    print("Zero")
+    }
   }
 
 is_positive(3)
+
+
+# for Loop
+loop <- function(x=1) {
+  for (i in 1:5) {
+    print(i*x)
+    }
+  }
